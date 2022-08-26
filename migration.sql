@@ -1,5 +1,6 @@
-
-CREATE TABLE movies (
+DROP TABLE IF EXISTS movies;
+DROP  TABLE IF EXISTS awards;  
+CREATE TABLE movie (
   id serial,
   title text,
   duration integer,
@@ -10,6 +11,7 @@ CREATE TABLE movies (
   score numeric(3, 1)
 );
 
+
 CREATE TABLE awards (
   id serial,
   movies_id integer,
@@ -19,9 +21,7 @@ CREATE TABLE awards (
 );
 
 
-
-ALTER TABLE awards ADD COLUMN win boolean;
-ALTER TABLE awards ALTER COLUMN win boolean NOT NULL;
+ALTER TABLE awards ADD COLUMN win boolean NOT NULL;
 
 INSERT INTO movies (title, duration, rating, genre, is_3d, released_at, score) VALUES ('Frozen', 102, 'PG', 'Animation', TRUE, '2013-11-27 00:00:00 UTC', 7.6);
 INSERT INTO movies (title, duration, rating, genre, is_3d, released_at, score) VALUES ('X-Men: Apocalypse', 144, 'PG-13', 'Action', TRUE, '2016-05-27 00:00:00 UTC', 7.4);
